@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.1.4</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>uz.keysoft.processmodules</groupId>
+    <artifactId>preapprove-process-module</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>preapprove-process-module</name>
+    <description>preapprove-process-module</description>
+
+    <properties>
+        <java.version>22</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <jackson.version>2.13.1</jackson.version>
+        <spring-cloud.version>2022.0.4</spring-cloud.version>
+        <springdoc.version>2.1.0</springdoc.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <keysoft.commons.version>2.1.0-SNAPSHOT</keysoft.commons.version>
+    </properties>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <!--        Utils-->
+        <dependency>
+            <groupId>uz.keysoft</groupId>
+            <artifactId>commons-utils</artifactId>
+            <version>${keysoft.commons.version}</version>
+        </dependency>
+
+        <!--        Spring boot -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <!--        Tests-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>uz.keysoft</groupId>
+                <artifactId>commons-dependencies</artifactId>
+                <version>${keysoft.commons.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!--    <distributionManagement>-->
+    <!--&lt;!&ndash;        <repository>&ndash;&gt;-->
+    <!--&lt;!&ndash;            <id>local-nexus</id>&ndash;&gt;-->
+    <!--&lt;!&ndash;            <url>https://nexus.nbu.uz/repository/maven-snapshots</url>&ndash;&gt;-->
+    <!--&lt;!&ndash;        </repository>&ndash;&gt;-->
+    <!--    </distributionManagement>-->
+
+    <!--    <repositories>-->
+    <!--        <repository>-->
+    <!--            <id>maven.snapshots</id>-->
+    <!--            <url>https://nexus.nbu.uz/repository/maven-snapshots</url>-->
+    <!--            <releases>-->
+    <!--                <enabled>false</enabled>-->
+    <!--            </releases>-->
+    <!--            <snapshots>-->
+    <!--                <enabled>true</enabled>-->
+    <!--                <updatePolicy>always</updatePolicy>-->
+    <!--            </snapshots>-->
+    <!--        </repository>-->
+    <!--        <repository>-->
+    <!--            <id>maven.releases</id>-->
+    <!--            <url>https://nexus.nbu.uz/repository/maven-releases</url>-->
+    <!--            <releases>-->
+    <!--                <enabled>true</enabled>-->
+    <!--                <updatePolicy>always</updatePolicy>-->
+    <!--            </releases>-->
+    <!--            <snapshots>-->
+    <!--                <enabled>false</enabled>-->
+    <!--            </snapshots>-->
+    <!--        </repository>-->
+    <!--    </repositories>-->
+
+    <build>
+        <finalName>preapprove-process-module</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.3.1</version>
+                <dependencies>
+                </dependencies>
+                <executions>
+                    <execution>
+                        <id>validate</id>
+                        <phase>validate</phase>
+                        <configuration>
+                            <configLocation>config/checkstyle/checkstyle.xml</configLocation>
+                            <consoleOutput>true</consoleOutput>
+                            <failsOnError>true</failsOnError>
+                        </configuration>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
