@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+    <Properties>
+        <Property name="LOG_PATTERN">%d %-5p [%t] %c{1.} : %m%n</Property>
+    </Properties>
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </Console>
+        <Kafka name="kafka" topic="${env:KAFKA_TOPIC}">
+            <JsonLayout eventEol="true" stacktraceAsString="true" includeTimeMillis="true"
+                        objectMessageAsJsonObject="true">
+                <KeyValuePair key="appName" value="${env:APP_NAME}"/>
+            </JsonLayout>
+            <Property name="bootstrap.servers">${env:BOOTSTRAP_SERVER}</Property>
+            <Property name="security.protocol">SASL_PLAINTEXT</Property>
+            <Property name="sasl.mechanism">PLAIN</Property>
+            <Property name="group.id">logger-group</Property>
+            <Property name="sasl.jaas.config">org.apache.kafka.common.security.plain.PlainLoginModule required
+                username="${env:KAFKA_LOG_USERNAME}" password="${env:KAFKA_LOG_PASSWORD}";
+            </Property>
+        </Kafka>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="console"/>
+            <AppenderRef ref="kafka"/>
+        </Root>
+        <Logger name="org.springframework.web.client.RestTemplate" level="DEBUG">
+            <AppenderRef ref="console"/>
+            <AppenderRef ref="kafka"/>
+        </Logger>
+        <Logger name="org.hibernate.SQL" level="OFF">
+            <AppenderRef ref="console"/>
+        </Logger>
+        <Logger name="org.hibernate.type" level="OFF">
+            <AppenderRef ref="console"/>
+        </Logger>
+        <Logger name="org.springframework.jdbc.core.JdbcTemplate" level="DEBUG">
+            <AppenderRef ref="console"/>
+        </Logger>
+        <Logger name="org.camunda.bpm.client.spring" level="DEBUG">
+            <AppenderRef ref="console"/>
+        </Logger>
+        <Logger name="org.springframework.security" level="DEBUG">
+            <AppenderRef ref="console"/>
+        </Logger>
+        <Logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE">
+            <AppenderRef ref="console"/>
+        </Logger>
+    </Loggers>
+</Configuration>

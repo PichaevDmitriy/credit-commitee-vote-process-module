@@ -1,0 +1,41 @@
+server:
+  servlet:
+    context-path: /preapprove-process-module
+  port: 9002
+  error:
+    whitelabel:
+      enabled: false
+spring:
+  main:
+    allow-bean-definition-overriding: true
+    mvc:
+      throwExceptionIfNoHandlerFound: true
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 8KB
+      max-file-size: 100MB
+      max-request-size: 150MB
+
+springdoc:
+  swagger-ui:
+    path: '/swagger-ui.html'
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+logbook:
+  filter:
+    enabled: false
+filter:
+  excludeFilterUrls:
+    - '/preapprove-process-module/actuator'
+    - '/preapprove-process-module/v3/api-docs'
+    - '/preapprove-process-module/swagger-ui'
+    - 'http://zipkin.zipkin.svc.cluster.local'

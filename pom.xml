@@ -17,6 +17,9 @@
 
     <name>preapprove-process-module</name>
     <description>preapprove-process-module</description>
+    <modules>
+        <module>application</module>
+    </modules>
 
     <properties>
         <java.version>22</java.version>
