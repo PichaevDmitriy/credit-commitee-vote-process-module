@@ -13,9 +13,9 @@
     <packaging>jar</packaging>
 
     <properties>
-        <maven.compiler.source>22</maven.compiler.source>
-        <maven.compiler.target>22</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>22</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
 
     <build>
@@ -31,7 +31,7 @@
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
-                    <mainClass>uuz.keysoft.processmodules.preapprove.application.PreApproveApplication</mainClass>
+                    <mainClass>uz.keysoft.processmodules.preapprove.application.PreApproveApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>

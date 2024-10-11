@@ -1,0 +1,7 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+CAMUNDA_URL: test
+CAMUNDA_TENANT_ID:
