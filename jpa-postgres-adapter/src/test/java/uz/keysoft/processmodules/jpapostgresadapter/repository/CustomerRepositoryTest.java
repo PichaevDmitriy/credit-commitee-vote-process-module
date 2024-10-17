@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import uz.keysoft.processmodules.jpapostgresadapter.config.AbstractTestContainerInitializer;
-import uz.keysoft.processmodules.jpapostgresadapter.entity.CustomerEntity;
+import uz.keysoft.processmodules.jpapostgresadapter.entity.imps.CustomerEntity;
 
 public class CustomerRepositoryTest extends AbstractTestContainerInitializer {
   @Autowired

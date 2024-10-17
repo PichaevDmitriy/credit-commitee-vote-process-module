@@ -1,4 +1,4 @@
-package uz.keysoft.processmodules.jpapostgresadapter.entity;
+package uz.keysoft.processmodules.jpapostgresadapter.entity.imps;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
