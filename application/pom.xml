@@ -16,7 +16,28 @@
         <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
+        <postgres-test-container.version>1.18.3</postgres-test-container.version>
     </properties>
+
+
+
+
+    <dependencies>
+        <!--    Tests-->
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgres-test-container.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+<!--        Project dependencies-->
+        <dependency>
+            <groupId>uz.keysoft.processmodules</groupId>
+            <artifactId>jpa-postgres-adapter</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <finalName>preapprove-process-module</finalName>
