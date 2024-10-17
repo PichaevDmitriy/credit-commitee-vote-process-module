@@ -19,10 +19,11 @@
     <description>preapprove-process-module</description>
     <modules>
         <module>application</module>
+        <module>jpa-postgres-adapter</module>
     </modules>
 
     <properties>
-        <java.version>22</java.version>
+        <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <jackson.version>2.13.1</jackson.version>
