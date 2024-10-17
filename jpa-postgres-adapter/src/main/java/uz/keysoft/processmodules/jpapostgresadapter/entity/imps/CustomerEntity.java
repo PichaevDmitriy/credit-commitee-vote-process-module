@@ -30,7 +30,7 @@ public class CustomerEntity extends AbstractEntity {
   String lastName;
 
   @Override
-  public final boolean equals(Object o) {
+  public final boolean equals(final Object o) {
     if (this == o) return true;
     if (!(o instanceof CustomerEntity that)) return false;
 
