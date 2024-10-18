@@ -33,7 +33,7 @@
         <springdoc.version>2.1.0</springdoc.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <keysoft.commons.version>2.1.0-SNAPSHOT</keysoft.commons.version>
-        <mapstruct.version>1.6.2</mapstruct.version>
+        <modelmapper.version>3.2.0</modelmapper.version>
     </properties>
 
 
@@ -77,9 +77,9 @@
 
         <!--        Mapper-->
         <dependency>
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct</artifactId>
-            <version>${mapstruct.version}</version>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>${modelmapper.version}</version>
         </dependency>
     </dependencies>
 

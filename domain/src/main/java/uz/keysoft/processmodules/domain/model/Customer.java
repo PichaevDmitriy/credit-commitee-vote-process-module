@@ -1,4 +1,4 @@
-package uz.keysoft.processmodules.domain.dto;
+package uz.keysoft.processmodules.domain.model;
 
 import static lombok.AccessLevel.PRIVATE;
 import lombok.AllArgsConstructor;

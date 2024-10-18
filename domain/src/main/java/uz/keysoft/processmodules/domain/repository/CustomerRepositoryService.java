@@ -1,6 +1,6 @@
 package uz.keysoft.processmodules.domain.repository;
 
-import uz.keysoft.processmodules.domain.dto.Customer;
+import uz.keysoft.processmodules.domain.model.Customer;
 
 public interface CustomerRepositoryService {
   Customer save(Customer customer);
