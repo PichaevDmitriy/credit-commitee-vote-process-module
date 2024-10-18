@@ -37,6 +37,11 @@
             <artifactId>jpa-postgres-adapter</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>uz.keysoft.processmodules</groupId>
+            <artifactId>domain</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

@@ -17,6 +17,8 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <postgres-test-container.version>1.18.3</postgres-test-container.version>
+        <flyway.version>9.16.3</flyway.version>
+        <postgresql.version>42.6.0</postgresql.version>
     </properties>
 
     <dependencies>
@@ -29,14 +31,24 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>${springframework.boot.version}</version>
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
+            <version>${postgresql.version}</version>
         </dependency>
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
+            <version>${flyway.version}</version>
+        </dependency>
+
+<!--        Project dependencies-->
+        <dependency>
+            <groupId>uz.keysoft.processmodules</groupId>
+            <artifactId>domain</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 
