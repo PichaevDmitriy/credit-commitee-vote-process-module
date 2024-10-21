@@ -24,14 +24,21 @@ public class CustomerRepositoryServiceImpl implements CustomerRepositoryService 
 
   @Override
   public Customer save(final Customer customer) {
-    final CustomerEntity entity = mapper.map(customer, CustomerEntity.class);
+    final CustomerEntity entity = toEntity(customer);
     repository.save(entity);
-    return mapper.map(entity, Customer.class);
+    return toModel(entity);
   }
-
   @Override
   public Customer findById(final Long id) {
     final CustomerEntity entity = repository.findById(id).orElseThrow(CustomerNotFoundException::new);
+    return toModel(entity);
+  }
+
+  private Customer toModel(final CustomerEntity entity) {
     return mapper.map(entity, Customer.class);
+  }
+
+  private CustomerEntity toEntity(final Customer customer) {
+    return mapper.map(customer, CustomerEntity.class);
   }
 }
