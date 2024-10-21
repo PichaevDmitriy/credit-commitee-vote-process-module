@@ -42,6 +42,11 @@
             <artifactId>domain</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>uz.keysoft.processmodules</groupId>
+            <artifactId>rest-adapter</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
     <build>

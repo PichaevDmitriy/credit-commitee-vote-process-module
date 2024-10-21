@@ -21,6 +21,7 @@
         <module>application</module>
         <module>jpa-postgres-adapter</module>
         <module>domain</module>
+        <module>rest-adapter</module>
     </modules>
 
     <properties>
