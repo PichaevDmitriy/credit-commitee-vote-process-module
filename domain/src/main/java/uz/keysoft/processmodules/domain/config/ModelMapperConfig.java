@@ -1,4 +1,4 @@
-package uz.keysoft.processmodules.jpapostgresadapter.config;
+package uz.keysoft.processmodules.domain.config;
 
 import org.modelmapper.ModelMapper;
 import org.modelmapper.config.Configuration.AccessLevel;
