@@ -1,0 +1,17 @@
+camunda:
+  autoDeploy.enabled: false
+  bpm.client:
+    lock-duration: 10000 # defines how many milliseconds the External Tasks are locked until they can be fetched again
+    tenantId: ${CAMUNDA_TENANT_ID}
+    base-url: ${CAMUNDA_URL}
+    basic-auth:
+      username: ${CAMUNDA_USERNAME}
+      password: ${CAMUNDA_PASSWORD}
+process-adaptor:
+  sourceSystem: preapprove-process-module
+  timeToExpire: "P10D"
+  retry:
+    count: 5
+    timeoutInMilliseconds: 10000
+
+logging.level.org.camunda.bpm.client: DEBUG # increase the log level of the application
