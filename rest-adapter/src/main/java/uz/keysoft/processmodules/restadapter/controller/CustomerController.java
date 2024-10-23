@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import uz.keysoft.processmodules.domain.model.Customer;
-import uz.keysoft.processmodules.domain.repository.CustomerRepositoryService;
+import uz.keysoft.processmodules.domain.dto.model.Customer;
+import uz.keysoft.processmodules.domain.service.repository.CustomerRepositoryService;
 import uz.keysoft.processmodules.restadapter.dto.CustomerApi;
 
 @Slf4j

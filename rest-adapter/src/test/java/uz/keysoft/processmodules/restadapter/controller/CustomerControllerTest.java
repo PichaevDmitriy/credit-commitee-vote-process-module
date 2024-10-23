@@ -13,8 +13,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import uz.keysoft.processmodules.domain.config.ModelMapperConfig;
-import uz.keysoft.processmodules.domain.model.Customer;
-import uz.keysoft.processmodules.domain.repository.CustomerRepositoryService;
+import uz.keysoft.processmodules.domain.dto.model.Customer;
+import uz.keysoft.processmodules.domain.service.repository.CustomerRepositoryService;
 import uz.keysoft.processmodules.restadapter.config.RestAdapterTestConfig;
 
 @AutoConfigureMockMvc

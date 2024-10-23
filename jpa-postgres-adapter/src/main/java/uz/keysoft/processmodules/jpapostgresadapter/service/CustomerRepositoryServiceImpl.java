@@ -8,8 +8,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import uz.keysoft.processmodules.domain.exception.imps.CustomerNotFoundException;
-import uz.keysoft.processmodules.domain.model.Customer;
-import uz.keysoft.processmodules.domain.repository.CustomerRepositoryService;
+import uz.keysoft.processmodules.domain.dto.model.Customer;
+import uz.keysoft.processmodules.domain.service.repository.CustomerRepositoryService;
 import uz.keysoft.processmodules.jpapostgresadapter.entity.imps.CustomerEntity;
 import uz.keysoft.processmodules.jpapostgresadapter.repository.CustomerRepository;
 

@@ -12,7 +12,7 @@ import uz.keysoft.commons.tests.camunda.RemoteEngineEnvInitializer;
 import uz.keysoft.commons.tests.camunda.RemoteEngineExtension;
 import uz.keysoft.commons.tests.camunda.RemoteEngineUtils;
 import uz.keysoft.processmodules.camundaprocessadapter.config.CamundaTestConfiguration;
-import uz.keysoft.processmodules.camundaprocessadapter.service.ProcessService;
+import uz.keysoft.processmodules.domain.service.process.TestProcessService;
 
 import java.util.List;
 import java.util.UUID;
@@ -24,10 +24,10 @@ import java.util.UUID;
 @ContextConfiguration(initializers = RemoteEngineEnvInitializer.class)
 class TestHandlerTest {
   @Autowired
-  ProcessService processService;
+  TestProcessService processService;
 
   @Test
-  void executeOnlineInsuranceProcess_happyPath() {
+  void executeTestProcess_happyPath() {
     Long claimId = 1L;
     String businessKey = UUID.randomUUID().toString();
     String processInstanceId = processService.start().getId();

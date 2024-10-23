@@ -11,6 +11,8 @@ import org.camunda.community.rest.client.invoker.ApiException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
+import uz.keysoft.processmodules.domain.dto.process.TestProcessStartResponseDto;
+import uz.keysoft.processmodules.domain.service.process.TestProcessService;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,7 +21,7 @@ import java.util.Map;
 @Service
 @Primary
 @RequiredArgsConstructor
-public class ProcessServiceImp implements ProcessService {
+public class ProcessServiceImp implements TestProcessService {
   private final MessageApi messageApi;
   private final ProcessDefinitionApi processDefinitionApi;
 
@@ -28,12 +30,14 @@ public class ProcessServiceImp implements ProcessService {
 
 
   @Override
-  public ProcessInstanceWithVariablesDto start() {
+  public TestProcessStartResponseDto start() {
     log.info("Starting process for application {}");
     final StartProcessInstanceDto dto = buildStartProcessDto();
-    final ProcessInstanceWithVariablesDto processInstance;
     try {
-      return processDefinitionApi.startProcessInstanceByKeyAndTenantId("test_process_id", tenantId, dto);
+      final ProcessInstanceWithVariablesDto processInstance = processDefinitionApi.startProcessInstanceByKeyAndTenantId("test_process_id", tenantId, dto);
+      return TestProcessStartResponseDto.builder()
+        .id(processInstance.getId())
+        .build();
     } catch (ApiException e) {
       throw new RuntimeException(e);
     }
