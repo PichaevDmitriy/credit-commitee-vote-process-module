@@ -21,6 +21,8 @@ public abstract class AbstractIntegrationTest {
     registry.add("DB_URL", postgresContainer::getJdbcUrl);
     registry.add("DB_USERNAME", postgresContainer::getUsername);
     registry.add("DB_PASSWORD", postgresContainer::getPassword);
+    registry.add("CAMUNDA_URL", () -> "test");
+    registry.add("CAMUNDA_TENANT_ID", () -> "test");
     registry.add("CRON_ENABLED", () -> false);
   }
 }

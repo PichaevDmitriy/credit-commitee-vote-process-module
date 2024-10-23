@@ -30,6 +30,12 @@
             <version>${postgres-test-container.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>uz.keysoft.tests</groupId>
+            <artifactId>camunda-test-utils</artifactId>
+            <version>${keysoft.commons.version}</version>
+            <scope>test</scope>
+        </dependency>
 
 <!--        Project dependencies-->
         <dependency>
@@ -45,6 +51,11 @@
         <dependency>
             <groupId>uz.keysoft.processmodules</groupId>
             <artifactId>rest-adapter</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>uz.keysoft.processmodules</groupId>
+            <artifactId>camunda-process-adapter</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
