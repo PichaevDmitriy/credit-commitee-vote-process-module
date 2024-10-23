@@ -38,7 +38,7 @@ public class ProcessServiceImp implements TestProcessService {
       return TestProcessStartResponseDto.builder()
         .id(processInstance.getId())
         .build();
-    } catch (ApiException e) {
+    } catch (final ApiException e) {
       throw new RuntimeException(e);
     }
   }

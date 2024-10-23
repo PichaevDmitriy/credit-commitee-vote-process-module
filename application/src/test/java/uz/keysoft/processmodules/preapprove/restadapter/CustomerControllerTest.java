@@ -8,10 +8,10 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import uz.keysoft.processmodules.preapprove.AbstractTestContainerInitializer;
+import uz.keysoft.processmodules.preapprove.config.AbstractIntegrationTest;
 
 @AutoConfigureMockMvc
-public class CustomerControllerTest extends AbstractTestContainerInitializer {
+public class CustomerControllerTest extends AbstractIntegrationTest {
   @Autowired
   private MockMvc mvc;
 

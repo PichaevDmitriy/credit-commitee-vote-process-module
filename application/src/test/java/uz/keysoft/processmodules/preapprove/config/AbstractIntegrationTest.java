@@ -1,14 +1,13 @@
-package uz.keysoft.processmodules.preapprove;
+package uz.keysoft.processmodules.preapprove.config;
 
 import static org.junit.Assert.assertTrue;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.PostgreSQLContainer;
-import uz.keysoft.processmodules.preapprove.config.TestConfig;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = {TestConfig.class})
-public abstract class AbstractTestContainerInitializer {
+public abstract class AbstractIntegrationTest {
   private static final PostgreSQLContainer<?> postgresContainer = new PostgreSQLContainer<>("postgres:16")
     .withCommand("postgres -c max_connections=255");
 
