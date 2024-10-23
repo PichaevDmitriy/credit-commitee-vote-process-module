@@ -16,7 +16,7 @@ import uz.keysoft.commons.tests.camunda.RemoteEngine;
   DataSourceAutoConfiguration.class,
 })
 @ComponentScan("uz.keysoft.processmodules.camundaprocessadapter")
-public class CamundaTestConfiguration {
+public class CamundaTestConfig {
   @Bean
   MessageApi getMessageApi(){
     return new MessageApi(RemoteEngine.getApiClient());

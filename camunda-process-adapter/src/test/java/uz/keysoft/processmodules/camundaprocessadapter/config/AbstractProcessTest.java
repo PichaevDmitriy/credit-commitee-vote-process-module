@@ -9,7 +9,7 @@ import uz.keysoft.processmodules.domain.config.ModelMapperConfig;
 
 @ExtendWith(RemoteEngineExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE,
-  classes = {CamundaTestConfiguration.class,
+  classes = {CamundaTestConfig.class,
     ModelMapperConfig.class})
 @ContextConfiguration(initializers = RemoteEngineEnvInitializer.class)
 public class AbstractProcessTest {
