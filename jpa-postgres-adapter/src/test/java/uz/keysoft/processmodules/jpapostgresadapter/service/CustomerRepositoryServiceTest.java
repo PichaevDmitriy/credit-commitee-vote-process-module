@@ -6,9 +6,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import uz.keysoft.processmodules.domain.dto.model.Customer;
 import uz.keysoft.processmodules.domain.service.repository.CustomerRepositoryService;
-import uz.keysoft.processmodules.jpapostgresadapter.config.AbstractTestContainerInitializer;
+import uz.keysoft.processmodules.jpapostgresadapter.config.AbstractJpaPostgresTest;
 
-class CustomerRepositoryServiceTest extends AbstractTestContainerInitializer {
+class CustomerRepositoryServiceTest extends AbstractJpaPostgresTest {
   @Autowired
   CustomerRepositoryService customerRepositoryService;
 
