@@ -11,5 +11,5 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @AllArgsConstructor
 @ComponentScan("uz.keysoft.processmodules.jpapostgresadapter")
 @EnableJpaRepositories(basePackages="uz.keysoft.processmodules.jpapostgresadapter")
-public class TestBeansConfiguration {
+public class JpaTestConfig {
 }
