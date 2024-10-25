@@ -7,7 +7,7 @@ import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.PostgreSQLContainer;
 import uz.keysoft.processmodules.domain.config.ModelMapperConfig;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = {TestBeansConfiguration.class, ModelMapperConfig.class})
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = {JpaTestConfig.class, ModelMapperConfig.class})
 public abstract class AbstractJpaPostgresTest {
   private static final PostgreSQLContainer<?> postgresContainer = new PostgreSQLContainer<>("postgres:16")
     .withCommand("postgres -c max_connections=255");

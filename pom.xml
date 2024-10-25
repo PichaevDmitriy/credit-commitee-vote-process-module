@@ -23,6 +23,7 @@
         <module>domain</module>
         <module>rest-adapter</module>
         <module>camunda-process-adapter</module>
+        <module>kafka-adapter</module>
     </modules>
 
     <properties>
