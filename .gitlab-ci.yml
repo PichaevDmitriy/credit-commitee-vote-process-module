@@ -1,4 +1,4 @@
 include:
   - project: microloan/cicd
     ref: main
-    file: 'transition/preapprove-process-module.yml'
+    file: 'transition/credit-commitee-vote-process-module.yml'

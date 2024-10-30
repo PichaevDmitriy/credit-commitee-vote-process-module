@@ -11,12 +11,12 @@
     </parent>
 
     <groupId>uz.keysoft.processmodules</groupId>
-    <artifactId>preapprove-process-module</artifactId>
+    <artifactId>credit-commitee-vote-process-module</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>preapprove-process-module</name>
-    <description>preapprove-process-module</description>
+    <name>credit-commitee-vote-process-module</name>
+    <description>credit-commitee-vote-process-module</description>
     <modules>
         <module>application</module>
         <module>jpa-postgres-adapter</module>
@@ -140,7 +140,7 @@
     <!--    </repositories>-->
 
     <build>
-        <finalName>preapprove-process-module</finalName>
+        <finalName>credit-commitee-vote-process-module</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

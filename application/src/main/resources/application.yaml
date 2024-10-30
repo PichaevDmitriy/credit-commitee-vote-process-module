@@ -35,7 +35,7 @@ logbook:
     enabled: false
 filter:
   excludeFilterUrls:
-    - '/preapprove-process-module/actuator'
-    - '/preapprove-process-module/v3/api-docs'
-    - '/preapprove-process-module/swagger-ui'
+    - '/credit-commitee-vote-process-module/actuator'
+    - '/credit-commitee-vote-process-module/v3/api-docs'
+    - '/credit-commitee-vote-process-module/swagger-ui'
     - 'http://zipkin.zipkin.svc.cluster.local'

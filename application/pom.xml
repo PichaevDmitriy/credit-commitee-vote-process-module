@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>uz.keysoft.processmodules</groupId>
-        <artifactId>preapprove-process-module</artifactId>
+        <artifactId>credit-commitee-vote-process-module</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
@@ -61,7 +61,7 @@
     </dependencies>
 
     <build>
-        <finalName>preapprove-process-module</finalName>
+        <finalName>credit-commitee-vote-process-module</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -73,7 +73,7 @@
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
-                    <mainClass>uz.keysoft.processmodules.preapprove.application.PreApproveApplication</mainClass>
+                    <mainClass>uz.keysoft.processmodules.committeevote.application.CommitteeVoteApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>

@@ -1,8 +1,8 @@
 version: '3.3'
 services:
   insurance-service:
-    container_name: preapprove-process-module
-    image: preapprove-process-module
+    container_name: credit-commitee-vote-process-module
+    image: credit-commitee-vote-process-module
     build:
       context: .
       dockerfile: Dockerfile
@@ -10,7 +10,7 @@ services:
     environment:
       CONSUL_DATA: "prod"
       INS_LOG_DIR: "/opt/logs"
-    command: [ "java", "-jar", "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005", "preapprove-process-module.jar" ]
+    command: [ "java", "-jar", "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005", "credit-commitee-vote-process-module.jar" ]
     volumes:
       - ./logs:/opt/logs
 volumes:
