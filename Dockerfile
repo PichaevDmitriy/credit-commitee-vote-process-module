@@ -5,5 +5,5 @@ RUN mkdir -p /opt/logs
 ENV TZ=Asia/Tashkent 
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ /etc/timezone
 
-ENTRYPOINT ["java","-jar","/credit-commitee-vote-process-module"]
+ENTRYPOINT ["java","-jar","/credit-commitee-vote-process-module.jar"]
 

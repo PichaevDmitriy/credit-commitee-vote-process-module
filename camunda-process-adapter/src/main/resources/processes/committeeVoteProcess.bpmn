@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1b8trr7" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.22.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.21.0">
+  <bpmn:process id="committee_vote_process" name="CommitteeVote" isExecutable="true" camunda:historyTimeToLive="60">
+    <bpmn:subProcess id="committee_vote_multi_call" name="CommitteeVoteMultiCall">
+      <bpmn:incoming>Flow_1raqizy</bpmn:incoming>
+      <bpmn:outgoing>Flow_1aafity</bpmn:outgoing>
+      <bpmn:multiInstanceLoopCharacteristics camunda:collection="${commiteeList}" />
+      <bpmn:startEvent id="Event_0hz2lmk">
+        <bpmn:outgoing>Flow_0mxixoj</bpmn:outgoing>
+      </bpmn:startEvent>
+      <bpmn:sequenceFlow id="Flow_0mxixoj" sourceRef="Event_0hz2lmk" targetRef="create_vote_task_id" />
+      <bpmn:endEvent id="Event_10z5mlh">
+        <bpmn:incoming>Flow_1xxxdfb</bpmn:incoming>
+      </bpmn:endEvent>
+      <bpmn:serviceTask id="create_vote_task_id" name="CreateVoteTask" camunda:type="external" camunda:topic="create_vote_task">
+        <bpmn:incoming>Flow_0mxixoj</bpmn:incoming>
+        <bpmn:outgoing>Flow_1f3c04b</bpmn:outgoing>
+      </bpmn:serviceTask>
+      <bpmn:sequenceFlow id="Flow_1f3c04b" sourceRef="create_vote_task_id" targetRef="recive_committee_vote_id" />
+      <bpmn:intermediateCatchEvent id="recive_committee_vote_id" name="ReciveVote">
+        <bpmn:incoming>Flow_1f3c04b</bpmn:incoming>
+        <bpmn:outgoing>Flow_1xxxdfb</bpmn:outgoing>
+        <bpmn:messageEventDefinition id="MessageEventDefinition_17lavt3" messageRef="Message_03cv9oj" />
+      </bpmn:intermediateCatchEvent>
+      <bpmn:sequenceFlow id="Flow_1xxxdfb" sourceRef="recive_committee_vote_id" targetRef="Event_10z5mlh" />
+    </bpmn:subProcess>
+    <bpmn:startEvent id="Event_03jtiet">
+      <bpmn:outgoing>Flow_0ki7jxk</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0ki7jxk" sourceRef="Event_03jtiet" targetRef="get_committee_id" />
+    <bpmn:serviceTask id="get_committee_id" name="GetCommittee" camunda:type="external" camunda:topic="get_committee">
+      <bpmn:incoming>Flow_0ki7jxk</bpmn:incoming>
+      <bpmn:outgoing>Flow_1raqizy</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_1raqizy" sourceRef="get_committee_id" targetRef="committee_vote_multi_call" />
+    <bpmn:sequenceFlow id="Flow_1aafity" sourceRef="committee_vote_multi_call" targetRef="Activity_0280k1z" />
+    <bpmn:serviceTask id="Activity_0280k1z" name="MakeCommitteeDecision" camunda:type="external" camunda:topic="make_committee_decision">
+      <bpmn:incoming>Flow_1aafity</bpmn:incoming>
+      <bpmn:outgoing>Flow_19m6821</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="Event_01wywsi">
+      <bpmn:incoming>Flow_19m6821</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_19m6821" sourceRef="Activity_0280k1z" targetRef="Event_01wywsi" />
+  </bpmn:process>
+  <bpmn:message id="Message_03cv9oj" name="recive_committee_vote" />
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="committee_vote_process">
+      <bpmndi:BPMNShape id="Event_03jtiet_di" bpmnElement="Event_03jtiet">
+        <dc:Bounds x="152" y="172" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0fpnguf_di" bpmnElement="get_committee_id">
+        <dc:Bounds x="240" y="150" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_01wywsi_di" bpmnElement="Event_01wywsi">
+        <dc:Bounds x="1222" y="182" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0fm53cj_di" bpmnElement="Activity_0280k1z">
+        <dc:Bounds x="990" y="160" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0whnz7q_di" bpmnElement="committee_vote_multi_call" isExpanded="true">
+        <dc:Bounds x="470" y="90" width="430" height="200" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0hz2lmk_di" bpmnElement="Event_0hz2lmk">
+        <dc:Bounds x="510" y="172" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_12hnoup_di" bpmnElement="create_vote_task_id">
+        <dc:Bounds x="590" y="150" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1bz1jgj_di" bpmnElement="recive_committee_vote_id">
+        <dc:Bounds x="742" y="172" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="734" y="215" width="56" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_10z5mlh_di" bpmnElement="Event_10z5mlh">
+        <dc:Bounds x="832" y="172" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0mxixoj_di" bpmnElement="Flow_0mxixoj">
+        <di:waypoint x="546" y="190" />
+        <di:waypoint x="590" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1f3c04b_di" bpmnElement="Flow_1f3c04b">
+        <di:waypoint x="690" y="190" />
+        <di:waypoint x="742" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1xxxdfb_di" bpmnElement="Flow_1xxxdfb">
+        <di:waypoint x="778" y="190" />
+        <di:waypoint x="832" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ki7jxk_di" bpmnElement="Flow_0ki7jxk">
+        <di:waypoint x="188" y="190" />
+        <di:waypoint x="240" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1raqizy_di" bpmnElement="Flow_1raqizy">
+        <di:waypoint x="340" y="190" />
+        <di:waypoint x="470" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1aafity_di" bpmnElement="Flow_1aafity">
+        <di:waypoint x="900" y="200" />
+        <di:waypoint x="990" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_19m6821_di" bpmnElement="Flow_19m6821">
+        <di:waypoint x="1090" y="200" />
+        <di:waypoint x="1222" y="200" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
