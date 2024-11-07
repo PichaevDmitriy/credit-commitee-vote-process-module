@@ -12,8 +12,8 @@ import uz.keysoft.processmodules.committeevote.domain.service.process.TestProces
 import java.util.List;
 import java.util.UUID;
 
-@RemoteDeployment(resources = "processes/committeeVoteProcess.bpmn")
-class TestHandlerTest extends AbstractProcessTest {
+@RemoteDeployment(resources = "processes/testProcess.bpmn")
+public class TestCommitteeVote extends AbstractProcessTest {
   @Autowired
   TestProcessService processService;
 
@@ -21,7 +21,7 @@ class TestHandlerTest extends AbstractProcessTest {
   void executeTestProcess_happyPath() {
     Long claimId = 1L;
     String businessKey = UUID.randomUUID().toString();
-    String processInstanceId = processService.start("committee_vote_process_id").getId();
+    String processInstanceId = processService.start("test_process_id").getId();
     assertNotNull(processInstanceId);
     List<HistoricProcessInstanceDto> processInstances = RemoteEngineUtils.getHistoricProcessInstances(businessKey);
 //    Awaitility.await().until(() -> !RemoteEngineUtils.getAwaitedMessagesNames(processInstanceId).isEmpty());
@@ -33,5 +33,4 @@ class TestHandlerTest extends AbstractProcessTest {
 //    verify(applicationService, times(1)).updateState(claimId, State.FINISHED);
 
   }
-
 }
