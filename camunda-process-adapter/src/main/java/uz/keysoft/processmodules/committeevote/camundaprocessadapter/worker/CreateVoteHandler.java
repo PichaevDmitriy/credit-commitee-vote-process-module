@@ -10,6 +10,8 @@ import org.camunda.bpm.client.task.ExternalTaskHandler;
 import org.camunda.bpm.client.task.ExternalTaskService;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -18,6 +20,7 @@ import org.springframework.stereotype.Service;
 public class CreateVoteHandler implements ExternalTaskHandler {
   @Override
   public void execute(final ExternalTask externalTask, final ExternalTaskService externalTaskService) {
+    Map<String, Object> vars =  externalTask.getAllVariables();
     externalTaskService.complete(externalTask);
   }
 }
