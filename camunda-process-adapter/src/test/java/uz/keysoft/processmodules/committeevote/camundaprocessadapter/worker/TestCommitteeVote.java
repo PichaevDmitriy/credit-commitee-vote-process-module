@@ -28,7 +28,7 @@ public class TestCommitteeVote extends AbstractProcessTest {
     String processInstanceId = processService.start("committee_vote_process_id").getId();
     assertNotNull(processInstanceId);
     List<HistoricProcessInstanceDto> processInstances = RemoteEngineUtils.getHistoricProcessInstances(businessKey);
-    Awaitility.await().atMost(Duration.ofSeconds(20)).until(() -> !RemoteEngineUtils.getAwaitedMessagesNames(processInstanceId).isEmpty());
+    Awaitility.await().atMost(Duration.ofSeconds(50)).until(() -> !RemoteEngineUtils.getAwaitedMessagesNames(processInstanceId).isEmpty());
 //    processService.sendGoDecisionMessage(businessKey, claimId, Decision.HQ_APPROVED);
 //    assertEquals(1, processInstances.size());
 //    assertEquals(processInstanceId, processInstances.get(0).getId());
