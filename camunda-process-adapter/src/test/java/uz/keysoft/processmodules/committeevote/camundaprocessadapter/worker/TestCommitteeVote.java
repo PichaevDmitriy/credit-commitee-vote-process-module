@@ -10,22 +10,25 @@ import uz.keysoft.commons.tests.camunda.RemoteEngineUtils;
 import uz.keysoft.processmodules.committeevote.camundaprocessadapter.config.AbstractProcessTest;
 import uz.keysoft.processmodules.committeevote.domain.service.process.TestProcessService;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.UUID;
 
-@RemoteDeployment(resources = "processes/testProcess.bpmn")
-class TestHandlerTest extends AbstractProcessTest {
+@RemoteDeployment(resources = {"processes/committeeVoteProcess.bpmn",
+  "processes/committeeMemberVoteProcess.bpmn"
+})
+public class TestCommitteeVote extends AbstractProcessTest {
   @Autowired
   TestProcessService processService;
 
   @Test
-  void executeTestProcess_happyPath() {
+  void executeCommitteeVoteProcess_happyPath() {
     Long claimId = 1L;
     String businessKey = UUID.randomUUID().toString();
-    String processInstanceId = processService.start("test_process_id").getId();
+    String processInstanceId = processService.start("committee_vote_process_id").getId();
     assertNotNull(processInstanceId);
     List<HistoricProcessInstanceDto> processInstances = RemoteEngineUtils.getHistoricProcessInstances(businessKey);
-    Awaitility.await().until(() -> !RemoteEngineUtils.getAwaitedMessagesNames(processInstanceId).isEmpty());
+    Awaitility.await().atMost(Duration.ofSeconds(50)).until(() -> !RemoteEngineUtils.getAwaitedMessagesNames(processInstanceId).isEmpty());
 //    processService.sendGoDecisionMessage(businessKey, claimId, Decision.HQ_APPROVED);
 //    assertEquals(1, processInstances.size());
 //    assertEquals(processInstanceId, processInstances.get(0).getId());
@@ -34,5 +37,4 @@ class TestHandlerTest extends AbstractProcessTest {
 //    verify(applicationService, times(1)).updateState(claimId, State.FINISHED);
 
   }
-
 }

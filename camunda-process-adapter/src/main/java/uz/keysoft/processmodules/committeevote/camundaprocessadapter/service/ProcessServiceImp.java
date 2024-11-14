@@ -30,11 +30,11 @@ public class ProcessServiceImp implements TestProcessService {
 
 
   @Override
-  public TestProcessStartResponseDto start() {
+  public TestProcessStartResponseDto start(final String processId) {
     log.info("Starting process for application {}");
     final StartProcessInstanceDto dto = buildStartProcessDto();
     try {
-      final ProcessInstanceWithVariablesDto processInstance = processDefinitionApi.startProcessInstanceByKeyAndTenantId("test_process_id", tenantId, dto);
+      final ProcessInstanceWithVariablesDto processInstance = processDefinitionApi.startProcessInstanceByKeyAndTenantId(processId, tenantId, dto);
       return TestProcessStartResponseDto.builder()
         .id(processInstance.getId())
         .build();
