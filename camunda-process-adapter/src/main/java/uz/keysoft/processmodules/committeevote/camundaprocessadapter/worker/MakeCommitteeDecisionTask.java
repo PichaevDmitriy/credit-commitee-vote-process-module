@@ -20,7 +20,7 @@ import java.util.Map;
 public class MakeCommitteeDecisionTask implements ExternalTaskHandler {
   @Override
   public void execute(final ExternalTask externalTask, final ExternalTaskService externalTaskService) {
-    Map<String, Object> vars =  externalTask.getAllVariables();
+    final Map<String, Object> vars = externalTask.getAllVariables();
     externalTaskService.complete(externalTask);
   }
 }
