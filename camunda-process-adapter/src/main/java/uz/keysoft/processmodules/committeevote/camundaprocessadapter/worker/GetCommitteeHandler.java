@@ -34,7 +34,7 @@ public class GetCommitteeHandler implements ExternalTaskHandler {
       .firstName("John")
       .lastName("Doe")
       .build();
-    CommitteeMemberProcess committeeMember2 = CommitteeMemberProcess.builder()
+    final CommitteeMemberProcess committeeMember2 = CommitteeMemberProcess.builder()
       .id("2")
       .firstName("Jane")
       .lastName("Doe")
@@ -45,7 +45,7 @@ public class GetCommitteeHandler implements ExternalTaskHandler {
     try {
       committeeList.add(mapper.writeValueAsString(committeeMember1));
       committeeList.add(mapper.writeValueAsString(committeeMember2));
-    } catch (JsonProcessingException e) {
+    } catch (final JsonProcessingException e) {
       throw new RuntimeException(e);
     }
 
@@ -53,7 +53,7 @@ public class GetCommitteeHandler implements ExternalTaskHandler {
 
     final List<String> testCommitteeIds = List.of(committeeMember1.getId(), committeeMember2.getId());
 
-    Map<String, Object> variables = Map.of("committeeList", committeeList , "globalId", globalId);
+    final Map<String, Object> variables = Map.of("committeeList", committeeList , "globalId", globalId);
 
     externalTaskService.complete(externalTask, variables);
   }
